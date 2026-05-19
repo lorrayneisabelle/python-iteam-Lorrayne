@@ -1,24 +1,22 @@
 # Explicação — Desafio 01
 
-**Aluno:** _(seu nome)_  
-**Data:** _(data)_
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
+**Data:** 18/05/2026
 
 ---
 
 ## O que meu programa faz
+Recebe dois números e realiza a soma deles
 
-_(Descreva em suas palavras o que cada parte do código faz. Não copie o enunciado — explique como você pensou na solução.)_
-
----
 
 ## Resposta à Pergunta Obrigatória
 
 > Por que é necessário converter o resultado do `input()` antes de calcular a idade? O que acontece se não converter?
 
-_(Sua resposta aqui — use suas próprias palavras. Pode incluir exemplos de código se ajudar a explicar.)_
-
----
+É necessário converter o resultado da função input() porque ela sempre captura a resposta do usuário como um texto (string), mesmo quando digitamos números. Para realizar qualquer cálculo matemático (como somar, subtrair ou calcular a idade), o Python exige que os dados sejam números reais ou inteiros.
 
 ## Dificuldades encontradas
 
 _(Opcional: o que foi difícil? O que você pesquisou para resolver?)_
+
+Eu pesquisei na apostila sobre o input e sobre a codagem e como ficaria.
