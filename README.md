@@ -1,4 +1,4 @@
-# python-iteam-SEUNOME
+# python-iteam- Lorrayne Isabelle Paz de Oliveira
 
 ## Como usar este template
 
@@ -22,10 +22,10 @@ Curso: Capacitação em Desenvolvimento Full Stack | 2026
 
 | Campo | Preenchimento |
 |---|---|
-| **Nome completo** | _(preencha aqui)_ |
+| **Nome completo** | Lorrayne Isabelle Paz de Oliveira |
 | **Turma** | Vespertino 2026 |
-| **E-mail** | _(preencha aqui)_ |
-| **GitHub** | @_(seu usuário)_ |
+| **E-mail** | lorrayneisabelleoliveira@gmail.com|
+| **GitHub** | @lorrayneisabelle |
 
 ---
 
