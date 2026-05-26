@@ -1,21 +1,40 @@
-Lista 02 — Questão 01: Rastreamento — Lista e Dicionário
-Aluno: (seu nome)
-Data:  (data)
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Execute mentalmente linha por linha. Escreva o valor de cada variável ao final.
-Depois execute e confirme.
+### ## Resolução Passo a Passo (Rastreamento)
 
-  dados = {"nome": "Ana", "notas": [8.0, 7.5, 9.0]}
-  dados["notas"].append(6.5)
-  media = sum(dados["notas"]) / len(dados["notas"])
-  dados["media"] = round(media, 2)
-  chaves = list(dados.keys())
-  # Qual é o valor de: dados, media, chaves?
+1. **`dados = {"nome": "Ana", "notas": [8.0, 7.5, 9.0]}`**
+* Cria um dicionário inicial com duas chaves.
+* `dados` = `{"nome": "Ana", "notas": [8.0, 7.5, 9.0]}`
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
 
-(escreva aqui com suas próprias palavras)
+2. **`dados["notas"].append(6.5)`**
+* Adiciona o valor `6.5` ao final da lista que está na chave `"notas"`.
+* A lista de notas passa a ser: `[8.0, 7.5, 9.0, 6.5]`
 
+
+3. **`media = sum(dados["notas"]) / len(dados["notas"])`**
+* Soma das notas: $8.0 + 7.5 + 9.0 + 6.5 = 31.0$
+* Quantidade de notas: $4$
+* Cálculo: $31.0 / 4 = 7.75$
+* `media` = `7.75`
+
+
+4. **`dados["media"] = round(media, 2)`**
+* Cria uma nova chave `"media"` no dicionário com o valor arredondado (que já era `7.75`).
+* `dados` agora tem três chaves.
+
+
+5. **`chaves = list(dados.keys())`**
+* Extrai as chaves do dicionário e as transforma em uma lista.
+* `chaves` = `['nome', 'notas', 'media']`
+
+
+
+---
+
+### ## SUA RESPOSTA:
+
+Ao final da execução do código, os valores das variáveis são:
+
+* **`dados`**: `{'nome': 'Ana', 'notas': [8.0, 7.5, 9.0, 6.5], 'media': 7.75}`
+* **`media`**: `7.75`
+* **`chaves`**: `['nome', 'notas', 'media']`
