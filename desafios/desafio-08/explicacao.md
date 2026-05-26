@@ -1,7 +1,5 @@
 # Explicação — Desafio 08 — Banco Digital
 
-# Explicação — Desafio 08 — Banco Digital
-
 **Aluno:** Lorrayne Isabelle Paz de Oliveira
 **Data:** 26 de Maio de 2026  
 
