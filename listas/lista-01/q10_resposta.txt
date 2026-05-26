@@ -1,23 +1,57 @@
-Lista 01 — Questão 10: Análise Crítica de Código
-Aluno: (seu nome)
-Data:  (data)
+
+### **Lista 01 — Questão 10: Análise Crítica de Código**
+
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
+**Data:** 26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Em q10.py: reescreva a função corrigindo os 3 problemas encontrados.
 
-  def processar_alunos(alunos=[]):
-      aprovados = []
-      for i in range(len(alunos)):
-          if alunos[i]['nota'] >= 7.0:
-              aprovados = aprovados + [alunos[i]['nome']]
-      print(aprovados)
+### **ARQUIVO:
 
-Em q10_resposta.txt: identifique cada problema e explique por que é um problema.
-Dica: há um problema em: (1) definição da função, (2) como o loop é escrito, (3) como a lista é construída.
+```python
+def processar_alunos(alunos=None):
+    """
+    Versão corrigida e pythônica da função.
+    Corrige o argumento padrão mutável, simplifica a iteração e otimiza a lista.
+    """
+    # Correção 1: Tratamento correto para argumento padrão omisso
+    if alunos is None:
+        alunos = []
+        
+    aprovados = []
+    
+    # Correção 2: Iteração direta sobre os elementos da lista (Mais legível)
+    for aluno in alunos:
+        # Correção 3: Uso do método .append() para eficiência de memória
+        if aluno['nota'] >= 7.0:
+            aprovados.append(aluno['nome'])
+            
+    print(aprovados)
+    return aprovados
+
+# Teste prático do código corrigido:
+dados_teste = [
+    {'nome': 'Alice', 'nota': 8.5},
+    {'nome': 'Bruno', 'nota': 5.0},
+    {'nome': 'Carla', 'nota': 7.0}
+]
+processar_alunos(dados_teste)  # Saída esperada: ['Alice', 'Carla']
+
+```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
 
-(escreva aqui com suas próprias palavras)
+#### **1. O Problema na Definição da Função (`alunos=[]`)**
 
+* **O que está errado:** O uso de um objeto mutável (uma lista vazia `[]`) como valor padrão para um argumento.
+* **Por que é um problema:** Em Python, os argumentos padrões são avaliados apenas **uma única vez**, no momento em que a função é definida (carregada na memória), e não a cada vez que ela é executada. Isso significa que se você chamar essa função várias vezes sem passar nenhum parâmetro e modificar essa lista interna, todas as chamadas consecutivas vão compartilhar e acumular dados na **mesma lista física na memória**. O correto é iniciar com `None` e criar a lista dentro da função.
+
+#### **2. O Problema em Como o Loop é Escrito (`for i in range(len(alunos)):`)**
+
+* **O que está errado:** O uso do padrão de indexação clássico (estilo linguagem C) para percorrer uma coleção.
+* **Por que é um problema:** Este é um "anti-padrão" em Python. A linguagem foi desenhada para iterar diretamente sobre os objetos de uma coleção (`for aluno in alunos`). Forçar o uso de `range(len(...))` faz com que o Python precise criar um gerador de números desnecessário e te obriga a acessar os dicionários de forma poluída e repetitiva através de colchetes (`alunos[i]['nota']`), reduzindo a legibilidade e a elegância do código.
+
+#### **3. O Problema em Como a Lista é Construída (`aprovados = aprovados + [...]`)**
+
+* **O que está errado:** A criação de novas listas e uso do operador de concatenação (`+`) para adicionar elementos.
+* **Por que é um problema:** Toda vez que você usa o operador `+` para juntar listas, o Python não altera a lista original. Em vez disso, ele é obrigado a alocar um espaço totalmente novo na memória, copiar todos os elementos da lista antiga, somar o novo elemento e depois atualizar a variável. Em grandes volumes de dados, essa operação se torna terrivelmente lenta e ineficiente. O correto é usar o método `.append()`, que modifica a lista original de forma direta e extremamente otimizada.
