@@ -1,7 +1,6 @@
 Lista 02 — Questão 05: Funções de Alta Ordem
-Aluno: (seu nome)
-Data:  (data)
-
+Aluno: Lorrayne Isabelle Paz de Oliveira
+Data: 26/05/2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ENUNCIADO:
 Em q05.py: escreva aplicar(lista, funcao) que retorna uma nova lista com a
@@ -14,6 +13,52 @@ Em q05_resposta.txt: explique o que significa dizer que funções são
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
+ Lista 02 — Questão 05: Funções de Alta Ordem
 
-(escreva aqui com suas próprias palavras)
+def aplicar(lista, funcao):
+    """
+    Aplica a função recebida a cada elemento da lista
+    e retorna uma nova lista com os resultados.
+    """
+    nova_lista = []
+    for elemento in lista:
+        # Chama a função passada por parâmetro para o elemento atual
+        resultado = funcao(elemento)
+        nova_lista.append(resultado)
+    return nova_lista
 
+# --- Funções de teste ---
+def quadrado(n):
+    return n ** 2
+
+def eh_par(n):
+    return n % 2 == 0
+
+# --- Demonstração ---
+if __name__ == "__main__":
+    numeros = [1, 2, 3, 4, 5]
+    print(f"Lista original: {numeros}")
+
+    # (a) Demonstração elevando ao quadrado
+    print(f"(a) Ao quadrado:  {aplicar(numeros, quadrado)}")
+
+    # (b) Demonstração verificando se é par
+    print(f"(b) É par?:       {aplicar(numeros, eh_par)}")
+
+
+
+Dizer que funções são "cidadãs de primeira classe" (First-Class Citizens) 
+em Python significa que elas são tratadas com a mesma liberdade e os mesmos 
+direitos que qualquer outro tipo de dado comum (como inteiros, strings ou listas).
+
+Na prática, isso significa que podemos fazer três coisas principais com funções:
+
+1. Passá-las como argumentos/parâmetros para outras funções (como fizemos 
+   ao passar 'quadrado' e 'eh_par' para a função 'aplicar').
+2. Atribuí-las a variáveis (por exemplo: 'minha_funcao = print' e depois 
+   usar 'minha_funcao("Olá")').
+3. Retorná-las a partir de outras funções (uma função gerando e devolvendo 
+   outra função).
+
+Essa flexibilidade é o pilar que permite a existência de Funções de Alta Ordem 
+(Higher-Order Functions) e o uso do paradigma funcional dentro do Python.
