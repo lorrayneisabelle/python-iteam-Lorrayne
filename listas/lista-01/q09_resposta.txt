@@ -1,21 +1,39 @@
 Lista 01 — Questão 09: EAFP vs LBYL
-Aluno: (seu nome)
-Data:  (data)
+Aluno:  Lorrayne Isabelle Paz de Oliveira
+
+Data: 26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Em q09.py: reescreva a função abaixo no estilo EAFP usando try/except.
+Python
+def dividir(a, b):
+    """
+    Reescrita da função utilizando o estilo EAFP (Easier to Ask for Forgiveness than Permission).
+    Tenta executar a operação diretamente e trata a exceção caso ela ocorra.
+    """
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
 
-  def dividir(a, b):
-      if b != 0:
-          return a / b
-      else:
-          return None
-
-Em q09_resposta.txt: explique o que significa EAFP e qual versão é mais Pythônica.
-
+# Testes rápidos para validação:
+print(dividir(10, 2))  # Saída esperada: 5.0
+print(dividir(10, 0))  # Saída esperada: None
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
 
-(escreva aqui com suas próprias palavras)
+1. O que significa EAFP?
+EAFP é o acrônimo para "Easier to Ask for Forgiveness than Permission" (em português: "É mais fácil pedir perdão do que permissão").
 
+É uma filosofia de programação onde você simplesmente assume que a operação vai dar certo e tenta executá-la diretamente dentro de um bloco try. Se algo der errado (uma exceção for lançada), o fluxo é capturado e tratado no bloco except.
+
+Essa abordagem se contrapõe diretamente ao estilo LBYL ("Look Before You Leap" — "Olhe antes de pular"), que era o padrão usado no enunciado original. No LBYL, você usa estruturas condicionais (if/else) para checar exaustivamente todas as precondições antes de realizar a ação.
+
+2. Qual versão é mais Pythônica?
+A versão EAFP (utilizando try/except) é considerada a mais Pythônica (alinhada com o design e a filosofia da linguagem Python).
+
+Abaixo estão os motivos principais que justificam essa escolha no desenvolvimento profissional:
+
+Legibilidade do Código: O EAFP mantém o foco no "caminho feliz" (o fluxo principal do código). Você vê a operação principal logo de cara, enquanto o tratamento de exceções e casos isolados fica limpo e separado na parte de baixo.
+
+Desempenho Otimizado: Em Python, o mecanismo de exceções é extremamente rápido. Se a sua função recebe dados válidos na maior parte das vezes, o try/except é mais eficiente que o LBYL, pois o LBYL obriga o interpretador a avaliar uma condição if em todas as execuções, sem exceção.
+
+Prevenção contra Condições de Corrida (Race Conditions): Em operações externas (como manipulação de arquivos ou requisições de rede), o LBYL pode falhar. Se você checar se um arquivo existe com if, ele pode ser deletado por outro processo um milissegundo após a checagem e antes de você abri-lo. O EAFP resolve isso tentando abrir o arquivo diretamente; se ele sumir no processo, a exceção captura a falha de forma segura.
