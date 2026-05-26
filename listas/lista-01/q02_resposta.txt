@@ -1,21 +1,46 @@
-Lista 01 — Questão 02: Tipos e Conversão
-Aluno: (seu nome)
-Data:  (data)
+
+### **Lista 01 — Questão 02: Tipos e Conversão**
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
+
+**Data:** 26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Para cada linha abaixo, indique: (a) o tipo do resultado e (b) o valor.
-Responda por raciocínio ANTES de executar. Depois confirme no REPL.
 
-  print(type(10 / 2))         # tipo: ?   valor: ?
-  print(type(10 // 2))        # tipo: ?   valor: ?
-  print(int(3.9))             # tipo: ?   valor: ?
-  print(bool([]))             # tipo: ?   valor: ?
-  print(bool("False"))       # tipo: ?   valor: ?
-  print(str(True) == "True") # tipo: ?   valor: ?
+### **SUA RESPOSTA:**
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
+#### **1. Tabela de Resultados (Análise Teórica e Confirmação)**
 
-(escreva aqui com suas próprias palavras)
+| Expressão | Tipo do Resultado | Valor do Resultado |
+| --- | --- | --- |
+| `10 / 2` | `float` | `5.0` |
+| `10 // 2` | `int` | `5` |
+| `int(3.9)` | `int` | `3` |
+| `bool([])` | `bool` | `False` |
+| `bool("False")` | `bool` | `True` |
+| `str(True) == "True"` | `bool` | `True` |
 
+---
+
+#### **2. Justificativa Teórica (O Raciocínio por trás de cada linha)**
+
+* **`10 / 2`**
+* **Explicação:** Em Python, o operador de divisão comum (`/`) **sempre** retorna um número decimal (`float`), mesmo que a divisão seja exata. Portanto, o resultado é `5.0` e o tipo é `float`.
+
+
+* **`10 // 2`**
+* **Explicação:** O operador de divisão inteira (`//`) descarta a parte decimal e retorna apenas a parte inteira do resultado. Como os dois números envolvidos são inteiros, o resultado é um `int` puro (`5`).
+
+
+* **`int(3.9)`**
+* **Explicação:** A função `int()` aplicada a um número de ponto flutuante não arredonda o número para cima ou para baixo; ela simplesmente **trunca** (corta fora) a parte decimal. Por isso, `3.9` vira `3` (tipo `int`).
+
+
+* **`bool([])`**
+* **Explicação:** Em Python, coleções vazias (listas, tuplas, dicionários, strings vazias) têm valor booleano embutido equivalente a "falso" (são consideradas *falsy*). Como a lista `[]` está vazia, sua conversão para `bool` resulta em `False`.
+
+
+* **`bool("False")`**
+* **Explicação:** Esta é uma pegadinha clássica! Qualquer string **não vazia** em Python é considerada "verdadeira" (*truthful*), não importa o que esteja escrito dentro dela. Como a string `"False"` tem 5 caracteres, o Python a avalia como `True`. Para o Python, apenas a string vazia `""` resultaria em `False`.
+
+* **`str(True) == "True"`**
+* **Explicação:** Primeiro, a função `str(True)` converte o valor booleano `True` na string `"True"`. Depois, o operador de comparação `==` verifica se a string gerada (`"True"`) é igual à string da direita (`"True"`). Como elas são exatamente iguais, a expressão final resulta no valor booleano `True` (tipo `bool`).
