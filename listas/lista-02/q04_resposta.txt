@@ -1,6 +1,6 @@
 Lista 02 — Questão 04: Escopo — LEGB
-Aluno: (seu nome)
-Data:  (data)
+Aluno: Lorrayne Isabelle Paz de Oliveira
+Data:  26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ENUNCIADO:
@@ -21,6 +21,56 @@ Explique a regra de escopo (LEGB) que determina cada resultado.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
+### ## O que cada `print()` imprime?
 
-(escreva aqui com suas próprias palavras)
+* **(a) imprime:** `enclosing`
+* **(b) imprime:** `enclosing`
+* **(c) imprime:** `global`
+### ## Explicação Detalhada (Regra LEGB)
+
+A regra **LEGB** dita a ordem de prioridade que o Python usa para procurar o valor de uma variável. Ele busca na seguinte sequência:
+
+1. **L**ocal: Dentro da função atual.
+2. **E**nclosing (Escopo Abrangente): Dentro de funções externas (no caso de funções aninhadas).
+3. **G**lobal: No nível principal do script (fora de qualquer função).
+4. **B**uilt-in: Nomes pré-definidos do próprio Python (como `len`, `sum`, `print`).
+
+#### **(a) Primeiro print — `print(x)` dentro da função `interna()**`
+
+* **Onde ocorre:** Dentro da função `interna()`.
+* **Aplicação da Regra:** 1. O Python procura por `x` no escopo **L**ocal de `interna()`. Não encontra nenhuma atribuição ali dentro.
+2. Ele passa para o próximo nível, o escopo **E**nclosing (da função `externa()`). Ali, ele encontra `x = 'enclosing'`.
+* **Resultado:** Imprime `enclosing`.
+
+#### **(b) Segundo print — `print(x)` dentro da função `externa()**`
+
+* **Onde ocorre:** Fora de `interna()`, mas ainda dentro de `externa()`.
+* **Aplicação da Regra:**
+1. O Python procura no escopo **L**ocal da função atual (que agora é a `externa()`). Ele encontra diretamente a variável `x = 'enclosing'`.
+
+
+* **Resultado:** Imprime `enclosing`.
+
+#### **(c) Terceiro print — `print(x)` no nível principal do script**
+
+* **Onde ocorre:** No escopo global do arquivo, fora de qualquer função.
+* **Aplicação da Regra:**
+1. Como não está dentro de nenhuma função, o Python busca diretamente no escopo **G**lobal, onde encontra a definição `x = 'global'`. Ele não tem acesso às variáveis internas das funções `externa` ou `interna` (elas ficaram restritas aos seus próprios escopos e "morreram" quando as funções terminaram de rodar).
+
+
+* **Resultado:** Imprime `global`.
+
+### ## SUA RESPOSTA:
+
+**(a) imprime:** `enclosing`
+
+**Justificativa (LEGB):** O Python busca primeiro no escopo Local de `interna()`. Como não encontra `x`, ele expande a busca para o escopo **E**nclosing (da função mãe `externa()`), onde encontra o valor `'enclosing'`.
+
+**(b) imprime:** `enclosing`
+
+**Justificativa (LEGB):** O `print` está sendo executado no escopo **L**ocal da função `externa()`. A variável `x` definida ali tem o valor `'enclosing'`.
+
+**(c) imprime:** `global`
+
+**Justificativa (LEGB):** O `print` está no escopo **G**lobal do código. Ele encontra a variável `x` declarada na primeira linha do script. As variáveis criadas dentro das funções não afetam o escopo global porque não foi usada a palavra-chave `global` ou `nonlocal`.
 
