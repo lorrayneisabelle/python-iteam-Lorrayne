@@ -1,7 +1,6 @@
 Lista 02 — Questão 02: Escolha da Estrutura
-Aluno: (seu nome)
-Data:  (data)
-
+Aluno: Lorrayne Isabelle Paz de Oliveira
+Data:  26/05/2026
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ENUNCIADO:
 Para cada cenário, indique a estrutura mais adequada (list/tuple/dict/set) e justifique:
@@ -14,5 +13,4 @@ Para cada cenário, indique a estrutura mais adequada (list/tuple/dict/set) e ju
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
 
-(escreva aqui com suas próprias palavras)
-
+Análise dos Cenáriosa) Coordenadas (latitude, longitude) de uma cidade.Estrutura: tuple (Tupla)Justificativa: Coordenadas geográficas possuem uma estrutura fixa de dois valores que não devem ser alterados nem ter sua ordem invertida de forma independente. Como as tuplas são imutáveis, elas garantem a integridade desses dados.b) CPFs de usuários que já votaram (verificar duplicatas).Estrutura: set (Conjunto)Justificativa: Os conjuntos no Python não permitem elementos duplicados e são otimizados para operações de busca extremamente rápidas (pertencimento). É a estrutura perfeita para checar de forma eficiente se um CPF já está registrado ou não.c) Código de produto $\rightarrow$ preço em um catálogo.Estrutura: dict (Dicionário)Justificativa: Este cenário exige um mapeamento de um identificador único para um valor (relação Chave $\rightarrow$ Valor). O dicionário permite associar o código (chave) diretamente ao preço (valor), tornando a busca pelo preço de um produto instantânea.d) Notas de um aluno ao longo do semestre (pode crescer).Estrutura: list (Lista)Justificativa: Como a quantidade de notas pode crescer ao longo do tempo (novas avaliações), precisamos de uma estrutura mutável e que mantenha a ordem em que os dados foram inseridos. A lista permite o uso do método .append() para adicionar novos elementos facilmente.e) Dias úteis da semana (valor fixo, usado como chave de dict).Estrutura: tuple (Tupla)Justificativa: Para que um objeto seja usado como chave de um dicionário, ele obrigatoriamente precisa ser imutável (hashable). Como os dias úteis são um valor fixo, a tupla atende a ambos os requisitos perfeitamente (ao contrário de uma lista, que causaria um erro se usada como chave).## SUA RESPOSTA:a) tuple — Pois coordenadas são dados fixos, imutáveis e com ordem definida (latitude primeiro, longitude depois).b) set — Pois conjuntos barram automaticamente elementos duplicados e possuem a performance mais rápida para checar se um elemento já existe na coleção.c) dict — Pois funciona perfeitamente para mapear uma chave única (código do produto) a um valor correspondente (preço).d) list — Pois é uma estrutura dinâmica e ordenada, ideal para armazenar uma sequência de dados que vai crescer (receber novas notas).e) tuple — Pois é uma estrutura imutável, o que é um requisito obrigatório no Python para que um dado possa ser utilizado como chave de um dicionário.
