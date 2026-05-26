@@ -1,21 +1,26 @@
-Lista 01 — Questão 04: Rastreamento de Loop
-Aluno: (seu nome)
-Data:  (data)
+ **Lista 01 — Questão 04: Rastreamento de Loop**
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Trace o código abaixo manualmente.
-Para cada iteração, escreva o valor de i e de total.
-Qual é o valor final de total? O que o código calcula?
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
 
-  total = 0
-  for i in range(1, 6):
-      if i % 2 != 0:
-          total += i
-  print(total)
+**Data:** 26/05/2026
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
+### **SUA RESPOSTA:**
 
-(escreva aqui com suas próprias palavras)
+#### **1. Rastreamento Passo a Passo (Tabela de Iterações)**
 
+Antes de iniciar o loop, a variável `total` é inicializada com `0`. A função `range(1, 6)` gera a sequência de números inteiros `[1, 2, 3, 4, 5]` (o número 6 é exclusivo e fica de fora).
+
+A cada iteração, o programa avalia a condição `if i % 2 != 0` (que verifica se o número `i` é **ímpar**). Se for verdadeiro, `i` é somado ao `total`.
+
+| Iteração | Valor de `i` | Condição (`i % 2 != 0`) | Ação Tomada | Valor de `total` (após a linha) |
+| --- | --- | --- | --- | --- |
+| **Início** | — | — | Inicialização | `0` |
+| **1ª** | `1` | `1 % 2 != 0` (**True**) | `total += 1` | `1` |
+| **2ª** | `2` | `2 % 2 != 0` (**False**) | Nenhuma (pula) | `1` |
+| **3ª** | `3` | `3 % 2 != 0` (**True**) | `total += 3` | `4` |
+| **4ª** | `4` | `4 % 2 != 0` (**False**) | Nenhuma (pula) | `4` |
+| **5ª** | `5` | `5 % 2 != 0` (**True**) | `total += 5` | `9` |
+
+ **2. Resumo dos Resultados**
+* **Valor final de `total`:** O valor impresso pelo `print(total)` ao final do script será **`9`**.
+* **O que o código calcula?** Este código calcula a **soma de todos os números ímpares** contidos no intervalo de 1 a 5 (inclusive). Em termos matemáticos, ele executou a operação: $1 + 3 + 5 = 9$.
