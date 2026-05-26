@@ -1,8 +1,7 @@
 # ==============================================================================
 # DESAFIO 03 — SISTEMA DE MULTAS
 # Aluno: Lorrayne Isabelle Paz de Oliveira
-# Data: 
-
+# Data: 26/05/2026
 
 # 1. Solicita a velocidade atual do carro (convertendo para float para aceitar decimais)
 velocidade = float(input("Digite a velocidade atual do carro (km/h): "))
