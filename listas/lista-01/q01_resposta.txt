@@ -1,23 +1,21 @@
 Lista 01 — Questão 01: Modelo de Memória
-Aluno: (seu nome)
-Data:  (data)
+Aluno: Lorrayne Isabelle Paz de Oliveira 
+
+Data: 26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Analise o código abaixo SEM executar.
-Escreva o valor de cada variável após a última linha.
-Explique por que modificar b (ou não) afeta a.
-Depois execute e verifique sua previsão.
 
-Código:
-  a = [10, 20, 30]
-  b = a
-  b.append(40)
-  c = a.copy()
-  c.append(99)
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
+1. Valor de cada variável após a última linha
+a: [10, 20, 30, 40]
 
-(escreva aqui com suas próprias palavras)
+b: [10, 20, 30, 40]
 
+c: [10, 20, 30, 40, 99]
+
+2. Por que modificar b afeta a? (E por que c não afeta?)
+Em Python, as variáveis não guardam os valores em si, mas sim referências (endereços) para o lugar da memória onde os objetos estão guardados.
+
+O caso de b = a (Referência Compartilhada): Quando você faz b = a, você não está criando uma lista nova. Você está dizendo que b agora aponta para a mesma exata lista que a na memória. Como ambos são "apelidos" para o mesmo objeto, qualquer modificação feita através de b (como o append(40)) será vista por a.
+
+O caso de c = a.copy() (Cópia Rasa/Shallow Copy): O método .copy() cria um novo objeto de lista na memória e copia os elementos de a para dentro dele. Como c aponta para um endereço de memória totalmente diferente, a modificação c.append(99) afeta apenas a lista de c, deixando a intacta.
