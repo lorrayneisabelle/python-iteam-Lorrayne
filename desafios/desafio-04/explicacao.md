@@ -1,8 +1,7 @@
 # Explicação — Desafio 04 — Tabuada Personalizada
 
-**Aluno:** _(seu nome)_
-**Data:** _(data)_
-
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
+**Data:** 26/06/2026
 ---
 
 ## O que meu programa faz
