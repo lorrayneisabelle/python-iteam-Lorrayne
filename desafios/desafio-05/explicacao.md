@@ -6,10 +6,7 @@
 ---
 
 ## O que meu programa faz
-
-_(Descreva em suas palavras o que cada parte do código faz.)_
-
----
+A principal utilidade dele é simular o funcionamento de aplicativos de mercado ou listas de mercado feitas no papel
 
 ## Resposta à Pergunta Obrigatória
 
