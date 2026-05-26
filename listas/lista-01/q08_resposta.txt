@@ -1,15 +1,58 @@
-Lista 01 — Questão 08: is vs ==
-Aluno: (seu nome)
-Data:  (data)
+
+### **Lista 01 — Questão 08: is vs ==**
+
+**Aluno:** Lorrayne Isabelle Paz de Oliveira
+
+**Data:** 26/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ENUNCIADO:
-Explique a diferença entre os operadores is e == em Python.
-Dê um exemplo onde o resultado de cada um é diferente.
-Em que situação é correto usar is em código profissional?
+ **SUA RESPOSTA:**
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SUA RESPOSTA:
+#### **1. A Diferença entre `==` e `is**`
 
-(escreva aqui com suas próprias palavras)
+* **`==` (Operador de Igualdade / *Equality*):** Compara o **conteúdo** (os valores) de dois objetos. Ele quer saber se o que está dentro deles é igual, independentemente de onde eles estão guardados na memória.
+* **`is` (Operador de Identidade / *Identity*):** Compara o **endereço de memória** (a identidade) de dois objetos. Ele verifica se as duas variáveis apontam exatamente para o **mesmo objeto** na memória (ou seja, se `id(a) == id(b)`).
 
+**2. Exemplo onde os resultados são diferentes**
+
+Se criarmos duas listas com os mesmos elementos, elas terão conteúdos iguais, mas serão objetos diferentes na memória:
+
+python
+Criando duas listas distintas na memória com o mesmo conteúdo
+lista_a = [1, 2, 3]
+lista_b = [1, 2, 3]
+
+# Comparando com '==' (Verifica o valor/conteúdo)
+print(lista_a == lista_b)  
+# Retorna: True (O conteúdo das duas listas é idêntico)
+
+# Comparando com 'is' (Verifica a identidade/endereço de memória)
+print(lista_a is lista_b)  
+# Retorna: False (São duas listas diferentes ocupando locais diferentes na memória)
+
+> **O que acontece por trás dos panos?**
+> Se usarmos a função `id()`, veremos que os endereços são diferentes, por isso `is` retorna `False`:
+> * `id(lista_a)` $\rightarrow$ `140234752494400`
+> * `id(lista_b)` $\rightarrow$ `140234752494528`
+> 
+> 
+ **3. Em que situação é correto usar `is` em código profissional?**
+
+No desenvolvimento profissional, o uso do `is` deve ser reservado para cenários muito específicos, sendo o principal deles a **comparação com Singletons** (objetos únicos na memória do Python).
+
+As principais situações recomendadas pelo guia de estilo oficial do Python (PEP 8) são:
+
+1. **Comparação com `None`:** Esta é a convenção padrão e mais comum. Como `None` é um objeto único no ecossistema Python, a comparação com `is` é mais rápida e segura.
+```python
+# CORRETO (Padrão de mercado)
+if resultado is None:
+    print("Nenhum dado encontrado.")
+
+# EVITE
+if resultado == None:
+
+2. **Comparação com Booleanos Literais (raro):** Para verificar se algo é estritamente `True` ou `False` (embora geralmente usemos apenas `if variavel:`).
+3. **Sentinelas personalizados:** Quando você cria um objeto único para servir como um marcador específico dentro do seu código.
+
+**Por que não usar `is` para números ou strings?**
+O Python faz otimizações internas (chamadas de *interning*) que podem fazer com que números pequenos (de -5 a 256) e algumas strings curtas compartilhem o mesmo endereço de memória. Usar `is` nesses casos pode fazer seu código funcionar por pura sorte em uma máquina e quebrar em outra. Para valores, use sempre `==`.
