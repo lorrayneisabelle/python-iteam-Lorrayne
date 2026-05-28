@@ -1,6 +1,6 @@
 Lista 02 — Questão 07: Interpretação de Classe
-Aluno: (seu nome)
-Data:  (data)
+Aluno: Lorrayne Isabelle Paz de Oliveira
+Data: 28/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ENUNCIADO:
@@ -11,6 +11,20 @@ Leia a classe ContaBancaria do enunciado e responda SEM executar:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ (a) O que `self.saldo` representa — por que usar `self` e não variável local?
+O que representa:`self.saldo` é um **atributo de instância**. Ele representa o estado específico do saldo de uma determinada conta bancária.
+Por que usar `self`: O prefixo `self` vincula a variável diretamente ao objeto criado. Se usássemos uma variável local (apenas `saldo`), ela existiria apenas dentro do escopo do método onde foi criada (como o `__init__` ou `depositar`) e desapareceria assim que o método terminasse de executar. O `self` garante que o valor do saldo seja **persistido** e fique acessível para qualquer outro método da classe (como `sacar` ou `exibir_extrato`) a qualquer momento.
+ (b) O que acontece se você chamar `conta.sacar(2000)` com saldo = 500?
 
-(escreva aqui com suas próprias palavras)
+Como o valor do saque (2000) é maior do que o saldo disponível (500), a lógica interna do método `sacar` (geralmente estruturada com uma condição `if valor > self.saldo`) irá impedir a operação.
+
+Na prática: O saldo da conta não será alterado (permanecerá em 500) e o programa provavelmente exibirá uma mensagem de erro ou aviso (como *"Saldo insuficiente"*) que foi programada dentro do método para tratar esse cenário.
+
+(c) Reescreva `__str__` para exibir também o número da conta.
+
+Considerando que o atributo que armazena o número da conta seja algo como `self.numero` ou `self.numero_conta`, a reescrita do método utilizando f-strings fica assim:*
+python
+def __str__(self):
+    return f"Conta Nº: {self.numero} | Saldo Atual: R$ {self.saldo:.2f}"
 
