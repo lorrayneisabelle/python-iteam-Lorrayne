@@ -1,6 +1,6 @@
 Lista 02 — Questão 09: Encapsulamento e Propriedades
-Aluno: (seu nome)
-Data:  (data)
+Aluno:Lorrayne Isabelle Paz de Oliveira
+Data: 28/05/2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ENUNCIADO:
@@ -15,5 +15,87 @@ Em q09_resposta.txt: explique a diferença entre _atributo e __atributo em Pytho
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SUA RESPOSTA:
 
-(escreva aqui com suas próprias palavras)
+SUAS RESPOSTAS:
+1. Conteúdo proposto para o arquivo q09.py (Implementação da Classe)
+Python
+class Produto:
+    def __init__(self, nome, preco_inicial, estoque_inicial=0):
+        self.nome = nome
+        # O preço é definido passando pelo filtro de validação do setter
+        self.preco = preco_inicial
+        
+        if estoque_inicial < 0:
+            raise ValueError("O estoque inicial não pode ser negativo.")
+        self.__estoque = estoque_inicial
+
+    # ── Propriedades e Getters/Setters ──────────────────────────────────────
+    @property
+    def preco(self):
+        return self.__preco
+
+    @preco.setter
+    def preco(self, novo_preco):
+        if novo_preco <= 0:
+            raise ValueError("O preço deve ser estritamente maior que zero.")
+        self.__preco = novo_preco
+
+    @property
+    def estoque(self):
+        return self.__estoque
+
+    # ── Métodos de Negócio (Ações de Estoque) ──────────────────────────────
+    def repor(self, quantidade):
+        if quantidade <= 0:
+            raise ValueError("A quantidade de reposição deve ser positiva.")
+        self.__estoque += quantidade
+        print(f"[Reposição] +{quantidade} un. de '{self.nome}' adicionadas.")
+
+    def vender(self, quantidade):
+        if quantidade <= 0:
+            raise ValueError("A quantidade de venda deve ser positiva.")
+        if quantidade > self.__estoque:
+            raise ValueError(f"Estoque insuficiente! Tentou vender {quantidade}, mas só há {self.__estoque} em estoque.")
+        
+        self.__estoque -= quantity
+        print(f"[Venda] {quantidade} un. de '{self.nome}' vendidas.")
+
+    # ── Métodos Especiais ───────────────────────────────────────────────────
+    def __str__(self):
+        # Exibição amigável para o usuário final
+        return f"{self.nome} - R$ {self.preco:.2f} (Estoque: {self.__estoque} un)"
+
+    def __repr__(self):
+        # Exibição técnica para fins de debug
+        return f"Produto(nome='{self.nome}', preco_inicial={self.preco}, estoque_inicial={self.__estoque})"
+
+
+# ── Demonstração do Fluxo Solicitado ────────────────────────────────────────
+if __name__ == "__main__":
+    print("--- Criando o Produto ---")
+    p = Produto("Mouse Sem Fio", 120.00, 5)
+    print(f"Str: {p}")
+    print(f"Repr: {repr(p)}")
+
+    print("\n--- Realizando Venda Válida ---")
+    p.vender(3)
+    print(p)
+
+    print("\n--- Realizando Reposição ---")
+    p.repor(10)
+    print(p)
+
+    print("\n--- Tentativa de Venda Além do Estoque ---")
+    try:
+        p.vender(15)  # Restam apenas 12, deve falhar
+    except ValueError as erro:
+        print(f"Erro capturado com sucesso: {erro}")
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2. Conteúdo proposto para o arquivo q09_resposta.txt (Explicação Teórica)
+O Python lida com encapsulamento de forma diferente de linguagens como Java ou C++, utilizando prefixos de nomes para indicar visibilidade, já que não existem palavras-chave como private ou protected.
+
+_atributo (Um underline): Funciona apenas como uma convenção social entre programadores. Indica que o atributo ou método é "protegido", ou seja, de uso interno da classe ou de suas subclasses, e não deve ser acessado de fora. No entanto, o Python não bloqueia o acesso direto se alguém tentar usá-lo (objeto._atributo funciona normalmente).
+
+__atributo (Dois underlines): Ativa um mecanismo real do interpretador chamado Name Mangling (desfiguração de nome). O Python altera o nome interno da variável para _NomeDaClasse__atributo. Dessa forma, se você tentar acessar objeto.__atributo de fora da classe, o interpretador gerará um erro dizendo que o atributo não existe, protegendo a variável contra acessos acidentais ou substituições indesejadas em cenários de herança.
+
 
